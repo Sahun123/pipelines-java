@@ -8,12 +8,10 @@ trigger:
 
 strategy:
   matrix:
-    jdk10_linux:
+    jdk11_linux:
       imageName: "ubuntu-16.04"
-      jdk_version: "1.11"
     jdk11_windows:
       imageName: "vs2017-win2016"
-      jdk_version: "1.10"
   maxParallel: 2
 
 pool:
@@ -25,7 +23,7 @@ steps:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: $(jdk_version)
+    jdkVersionOption: "1.10"
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
